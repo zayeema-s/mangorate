@@ -40,9 +40,9 @@ class Auth extends CI_Controller
 					$this->config->item('use_username', 'tank_auth'));
 			$data['login_by_email'] = $this->config->item('login_by_email', 'tank_auth');
 
-			$this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('remember', 'Remember me', 'integer');
+			$this->form_validation->set_rules('login', $this->lang->line('auth_login'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('password', $this->lang->line('auth_password'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('remember', $this->lang->line('auth_remember_me'), 'integer');
 
 			// Get login for counting attempts to login
 			if ($this->config->item('login_count_attempts', 'tank_auth') AND
@@ -55,9 +55,9 @@ class Auth extends CI_Controller
 			$data['use_recaptcha'] = $this->config->item('use_recaptcha', 'tank_auth');
 			if ($this->tank_auth->is_max_login_attempts_exceeded($login)) {
 				if ($data['use_recaptcha'])
-					$this->form_validation->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback__check_recaptcha');
+					$this->form_validation->set_rules('recaptcha_response_field', $this->lang->line('auth_confirmation_code'), 'trim|xss_clean|required|callback__check_recaptcha');
 				else
-					$this->form_validation->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback__check_captcha');
+					$this->form_validation->set_rules('captcha', $this->lang->line('auth_confirmation_code'), 'trim|xss_clean|required|callback__check_captcha');
 			}
 			$data['errors'] = array();
 
@@ -129,21 +129,21 @@ class Auth extends CI_Controller
 			if ($use_username) {
 				$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->config->item('username_min_length', 'tank_auth').']|max_length['.$this->config->item('username_max_length', 'tank_auth').']|alpha_dash');
 			}
-			$this->form_validation->set_rules('fname', 'First Name', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
+			$this->form_validation->set_rules('fname', $this->lang->line('auth_fname'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('lname', $this->lang->line('auth_lname'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('email', $this->lang->line('auth_email'), 'trim|required|xss_clean|valid_email');
+			$this->form_validation->set_rules('password', $this->lang->line('auth_password'), 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
 			//$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|matches[password]');
-			$this->form_validation->set_rules('zip', 'Zip Code', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('birthday', 'Birth Day', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('zip', $this->lang->line('auth_zip'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('birthday', $this->lang->line('auth_birthday'), 'trim|required|xss_clean');
 
 			$captcha_registration	= $this->config->item('captcha_registration', 'tank_auth');
 			$use_recaptcha			= $this->config->item('use_recaptcha', 'tank_auth');
 			if ($captcha_registration) {
 				if ($use_recaptcha) {
-					$this->form_validation->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback__check_recaptcha');
+					$this->form_validation->set_rules('recaptcha_response_field', $this->lang->line('auth_confirmation_code'), 'trim|xss_clean|required|callback__check_recaptcha');
 				} else {
-					$this->form_validation->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback__check_captcha');
+					$this->form_validation->set_rules('captcha', $this->lang->line('auth_confirmation_code'), 'trim|xss_clean|required|callback__check_captcha');
 				}
 			}
 			$data['errors'] = array();
@@ -179,11 +179,13 @@ class Auth extends CI_Controller
 						}
 						unset($data['password']); // Clear password (just for any case)
 
-						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
+						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', $this->lang->line('auth_login')));
 					}
 				} else {
 					$errors = $this->tank_auth->get_error_message();
-					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
+					foreach ($errors as $k => $v)	{
+						$data['errors'][$k] = $this->lang->line($v);
+					}
 				}
 			}
 			if ($captcha_registration) {
@@ -211,7 +213,7 @@ class Auth extends CI_Controller
 			redirect('/auth/login/');
 
 		} else {
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
+			$this->form_validation->set_rules('email', $this->lang->line('auth_email'), 'trim|required|xss_clean|valid_email');
 
 			$data['errors'] = array();
 
@@ -250,7 +252,7 @@ class Auth extends CI_Controller
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
 			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
+			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', $this->lang->line('auth_login')));
 
 		} else {																// fail
 			$this->_show_message($this->lang->line('auth_message_activation_failed'));
@@ -271,7 +273,7 @@ class Auth extends CI_Controller
 			redirect('/auth/send_again/');
 
 		} else {
-			$this->form_validation->set_rules('login', 'Email or login', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('login', $this->lang->line('auth_email_or_login'), 'trim|required|xss_clean');
 
 			$data['errors'] = array();
 
@@ -307,8 +309,8 @@ class Auth extends CI_Controller
 		$user_id		= $this->uri->segment(3);
 		$new_pass_key	= $this->uri->segment(4);
 
-		$this->form_validation->set_rules('new_password', 'New Password', 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
-		$this->form_validation->set_rules('confirm_new_password', 'Confirm new Password', 'trim|required|xss_clean|matches[new_password]');
+		$this->form_validation->set_rules('new_password', $this->lang->line('auth_password_new'), 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
+		$this->form_validation->set_rules('confirm_new_password', $this->lang->line('auth_password_new_confirm'), 'trim|required|xss_clean|matches[new_password]');
 
 		$data['errors'] = array();
 
@@ -322,7 +324,7 @@ class Auth extends CI_Controller
 				// Send email with new password
 				$this->_send_email('reset_password', $data['email'], $data);
 
-				$this->_show_message($this->lang->line('auth_message_new_password_activated').' '.anchor('/auth/login/', 'Login'));
+				$this->_show_message($this->lang->line('auth_message_new_password_activated').' '.anchor('/auth/login/', $this->lang->line('auth_login')));
 
 			} else {														// fail
 				$this->_show_message($this->lang->line('auth_message_new_password_failed'));
@@ -351,9 +353,9 @@ class Auth extends CI_Controller
 			redirect('/auth/login/');
 
 		} else {
-			$this->form_validation->set_rules('old_password', 'Old Password', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('new_password', 'New Password', 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
-			$this->form_validation->set_rules('confirm_new_password', 'Confirm new Password', 'trim|required|xss_clean|matches[new_password]');
+			$this->form_validation->set_rules('old_password', $this->lang->line('auth_password_old'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('new_password', $this->lang->line('auth_password_new'), 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
+			$this->form_validation->set_rules('confirm_new_password', $this->lang->line('auth_password_new_confirm'), 'trim|required|xss_clean|matches[new_password]');
 
 			$data['errors'] = array();
 
@@ -383,8 +385,8 @@ class Auth extends CI_Controller
 			redirect('/auth/login/');
 
 		} else {
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
+			$this->form_validation->set_rules('password', $this->lang->line('auth_password'), 'trim|required|xss_clean');
+			$this->form_validation->set_rules('email', $this->lang->line('auth_email'), 'trim|required|xss_clean|valid_email');
 
 			$data['errors'] = array();
 
@@ -424,7 +426,7 @@ class Auth extends CI_Controller
 		// Reset email
 		if ($this->tank_auth->activate_new_email($user_id, $new_email_key)) {	// success
 			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_new_email_activated').' '.anchor('/auth/login/', 'Login'));
+			$this->_show_message($this->lang->line('auth_message_new_email_activated').' '.anchor('/auth/login/', $this->lang->line('auth_login')));
 
 		} else {																// fail
 			$this->_show_message($this->lang->line('auth_message_new_email_failed'));
