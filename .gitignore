@@ -10,6 +10,8 @@ application/logs/*
 
 captcha/*.jpg
 
+application/config/database.php
+
 */config/development
 */logs/log-*.php
 */logs/!index.html
