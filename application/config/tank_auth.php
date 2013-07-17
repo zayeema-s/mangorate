@@ -8,7 +8,7 @@
 |--------------------------------------------------------------------------
 */
 $config['website_name'] = 'Mangorate';
-$config['webmaster_email'] = 'info@mangorate.com';
+$config['webmaster_email'] = 'info@eventconnectbd.com';
 
 /*
 |--------------------------------------------------------------------------
