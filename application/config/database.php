@@ -48,11 +48,26 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'mangorate';
-$db['default']['dbdriver'] = 'mysql';
+$base_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$base_url .= "://".$_SERVER['HTTP_HOST'];
+$base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+
+if($base_url == 'http://localhost:8080/mangorate/mangorate/')
+{
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = '';
+	$db['default']['database'] = 'mangorate';
+	$db['default']['dbdriver'] = 'mysql';
+}
+if($base_url == 'http://www.mangorate.com/')
+{
+	$db['default']['hostname'] = '';
+	$db['default']['username'] = '';
+	$db['default']['password'] = '';
+	$db['default']['database'] = '';
+	$db['default']['dbdriver'] = '';
+}
 $db['default']['dbprefix'] = 'mr_';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
