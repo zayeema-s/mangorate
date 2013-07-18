@@ -646,6 +646,23 @@ class Tank_auth
 					$this->ci->config->item('login_attempt_expire', 'tank_auth'));
 		}
 	}
+
+	function load_css($file)
+	{
+		$css = '';
+		foreach ($file as $key => $value) {
+			$css.= "<link href='".$this->ci->config->item('css_url').$value."' rel='stylesheet'>\r\n\t";
+		}
+		return $css;
+	}
+	function load_js($file)
+	{
+		$css = '';
+		foreach ($file as $key => $value) {
+			$css.= "<script src='".$this->ci->config->item('js_url').$value."'></script>\r\n\t";
+		}
+		return $css;
+	}
 }
 
 /* End of file Tank_auth.php */

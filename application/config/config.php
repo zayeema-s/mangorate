@@ -21,6 +21,10 @@ $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ?
 $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
+$config['css_url'] = $config['base_url'].'assets/css/';
+$config['js_url'] = $config['base_url'].'assets/js/';
+$config['img_url'] = $config['base_url'].'assets/img/';
+
 /*
 |--------------------------------------------------------------------------
 | Index File

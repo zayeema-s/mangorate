@@ -1,0 +1,246 @@
+/*
+File:			docs.css
+Description:	Custom styles for MangoRate
+Written By:     Sultan Mahmud
+*/
+
+
+/*------------------------------------------------------------
+
+Typography
+
+------------------------------------------------------------*/
+height, body {
+	position: relative;
+	height: auto;
+	text-rendering: optimizelegibility;
+}
+
+.clear {
+	clear: both;
+}
+
+body {
+	background: url('../img/bg.png') repeat-x top center #e8e8e8; 
+	//font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-family: 'Droid Sans', sans-serif;
+	//font-family:"Open Sans",Helvetica,Arial,sans-serif;
+	color: #777777;
+	margin: 0px!important;
+	width: 100%;
+	position: relative;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container, .top-nav-area .container, .footer_area .container {
+	width: 1020px;
+}
+
+.top-nav-area {
+  background-color: #1b1b1b;
+  background-image: -moz-linear-gradient(top, #303030, #111111);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#303030), to(#111111));
+  background-image: -webkit-linear-gradient(top, #303030, #111111);
+  background-image: -o-linear-gradient(top, #303030, #111111);
+  background-image: linear-gradient(to bottom, #303030, #111111);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+  border-color: #252525;  
+  height: 65px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.6);  
+}
+
+.transparent {
+	background: url("../img/slider-arrow-bg.png") repeat scroll 0px 0px transparent;
+}
+
+.logo {
+	padding-top: 5px;
+	padding-left: 2px;
+}
+
+.top-nav-area .span1 {
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 70px;
+}
+
+.top-nav-area .span2 {
+	margin: 0px;
+	text-align: right;
+	width: 22.7%;
+	padding: 18px 0px;
+	width: auto;
+	float: right;
+}
+
+.top-nav-area .span7 {
+	margin: 0px;
+	width: 70%;
+	height: 56px;
+	width: auto;
+}
+
+.top-nav-area .input-prepend {
+	padding: 18px 0px;
+}
+
+.top-nav-area .input-prepend input {
+	background: #fefefe;
+	border-left: none;
+	padding-left: 1px;
+	width: 290px;
+}
+
+.top-nav-area .add-on {
+	color: #555;
+	background: #fefefe;
+	border-right: none;
+	font-weight: bold;
+	padding: 4px 10px 4px 8px;
+}
+
+.top-nav-area .btn-login, .top-nav-area .btn-signup {
+	margin-left: 10px;
+}
+
+.top-nav-area .btn-search {
+	padding: 4px 15px;
+}
+
+.navbar {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	margin-top: 70px;
+}
+
+.text-logo {
+	margin: -10px 2px -7px 2px;
+}
+
+.city-area {
+	position: relative;
+}
+
+.breadcrumb {	
+	font-size: 12px;	
+	text-align: right;
+	border: 1px solid #d4d4d4;
+	margin-bottom: 0px;
+	border-bottom: none;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	     -moz-border-radius: 4px 4px 0px 0px;
+	          border-radius: 4px 4px 0px 0px;
+	-webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.065);
+	     -moz-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.065);
+	          box-shadow: 0 0px 4px rgba(0, 0, 0, 0.065);
+}
+
+.leading {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	font-size: 13px;
+}
+
+.content-box {
+    margin: 0 auto;
+	background-color: #fff;
+	background-repeat: repeat-x;
+	border: 1px solid #d4d4d4;
+	  -webkit-border-radius: 0px 0px 4px 4px;
+	     -moz-border-radius: 0px 0px 4px 4px;
+	          border-radius: 0px 0px 4px 4px;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+	  *zoom: 1;
+	  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	padding: 0px;
+	border-top: 1px solid #ddd;
+	width: 99.9%;
+}
+
+.content-box .span7 {
+	width: 635px;
+	margin-left: 20px;
+	margin-right: -10px;
+}
+
+.content-box .span3 {
+	width: 342px;
+}
+
+.container-fluid .span8 {
+	border: 1px solid black;
+}
+
+.sidebar {
+	background: url("../img/knowledge_bg.png") repeat-y left top #F5F5F5 !important;
+	height: 1000px;
+}
+
+.links {
+	margin-top: 15px;
+	margin-left: 3%;
+}
+
+.links .span3 {
+	margin: 0px;
+	width: 23.5%;
+	padding: 5px;
+	font-size: 12px;
+}
+
+.links .span3 .title {
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 5px;
+}
+
+.links .span3 a {
+	display: block;
+	padding: 2px 0px;
+}
+
+h1.title {
+	font-size: 16px;
+	line-height: 30px;
+	color: #F47A24;
+}
+
+
+/*------------------------------------------------------------
+
+Footer
+
+------------------------------------------------------------*/
+
+
+#footer_area {
+	background: #f7f7f7;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+	padding: 10px 0;
+	margin-top: 30px;
+}
+#footer {
+    clear: both;
+    text-align: right;
+    font-size: 11px;
+    margin: 0 auto;
+    color: #888888;
+}
+.footer-nav {margin-top: 10px;}
+.footer-nav ul {list-style: none; padding-left: 0;}
+.footer-nav .nav li {
+	float: left;
+	padding-right: 4px;
+	color: #777777;
+	display: block;
+}

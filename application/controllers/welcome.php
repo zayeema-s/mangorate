@@ -12,13 +12,12 @@ class Welcome extends CI_Controller
 
 	function index()
 	{
-		if (!$this->tank_auth->is_logged_in()) {
-			redirect('/auth/login/');
-		} else {
-			$data['user_id']	= $this->tank_auth->get_user_id();
-			$data['username']	= $this->tank_auth->get_username();
-			$this->load->view('welcome', $data);
-		}
+		$data['title'] = 'Mangorate';
+		$data['css'] = $this->tank_auth->load_css(array('elastislide.css'));
+		$data['js'] = $this->tank_auth->load_js(array('modernizr.custom.17475.js','jquery.elastislide.js'));
+		$this->load->view('common/header', $data);
+		$this->load->view('welcome');
+		$this->load->view('common/footer');
 	}
 }
 
