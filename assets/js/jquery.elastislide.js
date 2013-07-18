@@ -524,7 +524,7 @@
 			else {
 
 				( dir === 'next' ) ? this.$navNext.show() : this.$navPrev.show();
-
+				
 			}
 			
 		},
