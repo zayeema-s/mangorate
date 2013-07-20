@@ -53,8 +53,6 @@
               }
           });
 
-          $( '#carousel' ).elastislide(); 
-
           $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
 
           $('.modal')
@@ -77,7 +75,7 @@
          
     <div class="top-nav-area navbar-fixed-top">
       <div class="container">
-        <div class="span1"><img class="logo" src="assets/img/mangorate-logo.png"></div>
+        <div class="span1"><img class="logo" src="<?php echo $this->config->item('img_url'); ?>mangorate-logo.png"></div>
         <div class="span7">
           <form class="form-inline">
             <div class="input-prepend">
@@ -102,7 +100,7 @@
     <div class="container">
       <div class="navbar">
         <div class="navbar-inner">
-          <a class="brand" href="#"><img class="text-logo" src="assets/img/mangorate-text.png"></a>
+          <a class="brand" href="#"><img class="text-logo" src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png"></a>
           <ul class="nav">
             <li><a href="#">Home</a></li>
             <li><a href="#">Write a Review</a></li>

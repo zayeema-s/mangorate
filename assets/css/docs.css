@@ -29,6 +29,8 @@ body {
 	position: relative;
 }
 
+a:active, a:focus { outline: none; }
+
 a:hover {
 	text-decoration: none;
 }
@@ -209,10 +211,11 @@ a:hover {
 }
 
 h1.title {
-	font-size: 16px;
+	font-size: 21px;
 	line-height: 30px;
 	color: #F47A24;
 	text-shadow: 0px 1px 0px #f2f2f;
+	font-weight: normal;
 }
 
 .modal-footer {
@@ -359,6 +362,10 @@ label.checkbox {
 .btn-inverse:active,
 .btn-inverse.active {
   background-color: #c67605 \9;
+}
+
+.btn-cat {
+	//height: 100px;
 }
 
 /*------------------------------------------------------------
