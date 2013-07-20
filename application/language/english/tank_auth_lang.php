@@ -4,11 +4,11 @@
 $lang['auth_incorrect_password'] 			= 'Incorrect password';
 $lang['auth_incorrect_login'] 				= 'Incorrect login';
 $lang['auth_incorrect_email_or_username'] 	= 'Login or email doesn\'t exist';
-$lang['auth_email_in_use'] 					= 'Email is already used by another user. Please choose another email.';
+$lang['auth_email_in_use'] 					= 'Email is already used by another user.';
 $lang['auth_username_in_use']			 	= 'Username already exists. Please choose another username.';
 $lang['auth_current_email'] 				= 'This is your current email';
-$lang['auth_incorrect_captcha'] 			= 'Your confirmation code does not match the one in the image.';
-$lang['auth_captcha_expired'] 				= 'Your confirmation code has expired. Please try again.';
+$lang['auth_incorrect_captcha'] 			= 'Invalid secutiy code.';
+$lang['auth_captcha_expired'] 				= 'Your secutiy code has expired. Please try again.';
 
 // Notifications
 $lang['auth_message_logged_out'] 				= 'You have been successfully logged out.';
@@ -39,6 +39,7 @@ $lang['auth_subject_change_email'] 		= 'Your new email address on %s';
 // Form lables
 $lang['auth_fname'] 					= 'First Name';
 $lang['auth_lname'] 					= 'Last Name';
+$lang['auth_username'] 					= 'Username';
 $lang['auth_email'] 					= 'Email Address';
 $lang['auth_email_new'] 				= 'New Email Address';
 $lang['auth_email_or_login'] 			= 'Email or Login';
@@ -49,19 +50,22 @@ $lang['auth_password_new_confirm'] 		= 'Confirm New Password';
 $lang['auth_zip'] 						= 'Zip Code';
 $lang['auth_birthday'] 					= 'Birth Day';
 
-$lang['auth_login'] 					= 'Login';
-$lang['auth_register'] 					= 'Register';
+$lang['auth_login'] 					= 'Log In';
+$lang['auth_register'] 					= 'Sign up today!';
+$lang['auth_signup'] 					= 'Sign Up';
 $lang['auth_send'] 						= 'Send';
 $lang['auth_change_password'] 			= 'Change Password';
-$lang['auth_forgot_password'] 			= 'Forgot Password';
+$lang['auth_forgot_password'] 			= 'Forgot Password?';
 $lang['auth_send_confirmation_email'] 	= 'Send confirmation email';
-$lang['auth_get_new_password'] 			= 'Get a new password';
+$lang['auth_get_new_password'] 			= 'Get a New Password';
 $lang['auth_remember_me'] 				= 'Remember me';
 $lang['auth_confirmation_code']			= 'Confirmation Code';
-$lang['auth_let_me_in']					= 'Let me in';
+$lang['auth_let_me_in']					= 'LOGIN';
 $lang['auth_delete_account'] 			= 'Delete account';
 
-$lang['auth_captcha_instruction']		= 'Enter the code exactly as it appears';
+$lang['auth_captcha_instruction']		= 'Enter Security Code';
+$lang['auth_dont_have_account']			= "Don't have an account yet?";
+$lang['auth_agree_terms']				= "I agree to the Terms of Service and Privacy Policy.";
 
 
 /* End of file tank_auth_lang.php */

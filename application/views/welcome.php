@@ -1,4 +1,5 @@
-	  <div class="city-area">
+	<div class="container">
+    <div class="city-area">
           <div class="leading">
             <b>Dhaka</b>
           </div>
@@ -10,9 +11,9 @@
             <li><a href="#">Uttara</a> <span class="divider">&middot;</span></li>
             <li><a href="#">More Neighborhoods &raquo;</a></li>
           </ul>
-      </div>
-      <div class="content-box">
-          <div class="span7 content">
+    </div>
+    <div class="content-box">
+        <div class="span7 content">
             <h1 class="title">What are you looking for?</h1>
             <ul id="carousel" class="elastislide-list">
               <li><a href="#"><img src="assets/img/cat/2.jpg" alt="image02" /></a></li>
@@ -35,26 +36,9 @@
               <li><a href="#"><img src="assets/img/cat/19.jpg" alt="image19" /></a></li>
               <li><a href="#"><img src="assets/img/cat/20.jpg" alt="image20" /></a></li>
             </ul>
-          </div>
-          <div class="span3 sidebar">
+        </div>
+        <div class="span3 sidebar">
             
-          </div> 
-          <div class="clear"></div>        
-      </div>
-      <script type="text/javascript">    
-	    $(document).ready(function(){
-	        $(window).scroll(function(){
-	            var top = $(document).scrollTop();
-	            if(top > 0)
-	            {
-	              $('.top-nav-area').addClass('transparent');
-	            }
-	            else
-	            {
-	              $('.top-nav-area').removeClass('transparent');
-	            }
-	        });
-
-	        $( '#carousel' ).elastislide(); 
-	    }); 
-	    </script>
+        </div> 
+        <div class="clear"></div>        
+      </div>    

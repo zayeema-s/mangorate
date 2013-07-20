@@ -1,123 +1,251 @@
 <?php
+echo $css;
+
+echo $js;
+
 if ($use_username) {
 	$username = array(
 		'name'	=> 'username',
 		'id'	=> 'username',
 		'value' => set_value('username'),
 		'maxlength'	=> $this->config->item('username_max_length', 'tank_auth'),
-		'size'	=> 30,
+		'placeholder'	=> 'Enter Username',
+		'required' => 'required'
 	);
 }
 $fname = array(
 	'name'	=> 'fname',
 	'id'	=> 'fname',
 	'value'	=> set_value('fname'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'placeholder'	=> 'Enter First Name',
+	'required' => 'required'
 );
 $lname = array(
 	'name'	=> 'lname',
 	'id'	=> 'lname',
 	'value'	=> set_value('lname'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'placeholder'	=> 'Enter Last Name',
+	'required' => 'required'
 );
 $email = array(
 	'name'	=> 'email',
 	'id'	=> 'email',
 	'value'	=> set_value('email'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'type' => 'email',
+	'placeholder'	=> 'Enter Email Address',
+	'required' => 'required'
 );
 $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
+	'type' => 'password',
 	'value' => set_value('password'),
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
-	'size'	=> 30,
+	'placeholder'	=> 'Enter Password',
+	'required' => 'required'
 );
 $zip = array(
 	'name'	=> 'zip',
 	'id'	=> 'zip',
 	'value'	=> set_value('zip'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'placeholder'	=> 'Enter Zip Code',
+	'required' => 'required',
 );
 $birthday = array(
 	'name'	=> 'birthday',
 	'id'	=> 'birthday',
 	'value'	=> set_value('birthday'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'placeholder'	=> 'Enter Birth Day',
+	'required' => 'required',
+	'id' => 'datepicker',
+	'data-date-format' => 'yyyy-mm-dd'
+);
+$agree = array(
+	'name'	=> 'agree',
+	'id'	=> 'agree',
+	'value'	=> 1,
+	'checked'	=> set_value('agree'),
+	'required' => 'required'
 );
 $captcha = array(
 	'name'	=> 'captcha',
 	'id'	=> 'captcha',
-	'maxlength'	=> 8,
+	'placeholder'	=> 'Enter Code',
+	'required' => 'required'
 );
 ?>
-<?php echo form_open($this->uri->uri_string()); ?>
-<table>
-	<?php if ($use_username) { ?>
-	<tr>
-		<td><?php echo form_label('Username', $username['id']); ?></td>
-		<td><?php echo form_input($username); ?></td>
-		<td style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
-	</tr>
-	<?php } ?>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_fname'), $fname['id']); ?></td>
-		<td><?php echo form_input($fname); ?></td>
-		<td style="color: red;"><?php echo form_error($fname['name']); ?></td>
-	</tr>
-	<tr>
-		<td><?php echo form_label('Last Name', $lname['id']); ?></td>
-		<td><?php echo form_input($lname); ?></td>
-		<td style="color: red;"><?php echo form_error($lname['name']); ?></td>
-	</tr>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_email'), $email['id']); ?></td>
-		<td><?php echo form_input($email); ?></td>
-		<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
-	</tr>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_password'), $password['id']); ?></td>
-		<td><?php echo form_password($password); ?></td>
-		<td style="color: red;"><?php echo form_error($password['name']); ?></td>
-	</tr>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_zip'), $zip['id']); ?></td>
-		<td><?php echo form_input($zip); ?></td>
-		<td style="color: red;"><?php echo form_error($zip['name']); ?></td>
-	</tr>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_birthday'), $birthday['id']); ?></td>
-		<td><?php echo form_input($birthday); ?></td>
-		<td style="color: red;"><?php echo form_error($birthday['name']); ?></td>
-	</tr>	
+	<div class="facebook-signup-link">	
+		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>facebook.png" /></a>
+		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>twitter.png" /></a>				
+	</div>
+	<span class="or">OR</span>	
+<?php 
+	$attributes = array('id' => 'myform', 'class' => 'form-horizontal'); 
+	echo form_open($this->uri->uri_string(), $attributes); ?>
 
-	<?php if ($captcha_registration) {
+	<?php if ($use_username) { ?>
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $username['id']; ?>"><?php echo $this->lang->line('auth_username'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<?php echo form_input($username); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?>
+			</div>		
+		</div>
+	</div>
+	<?php } ?>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $fname['id']; ?>"><?php echo $this->lang->line('auth_fname'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<?php echo form_input($fname); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($fname['name']); ?>
+			</div>		
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $lname['id']; ?>"><?php echo $this->lang->line('auth_lname'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+				<?php echo form_input($lname); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($lname['name']); ?>
+			</div>		
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $email['id']; ?>"><?php echo $this->lang->line('auth_email'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-envelope"></i></span>
+				<?php echo form_input($email); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?>
+			</div>		
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $password['id']; ?>"><?php echo $this->lang->line('auth_password'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-lock"></i></span>
+				<?php echo form_input($password); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($password['name']); ?>
+			</div>		
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $zip['id']; ?>"><?php echo $this->lang->line('auth_zip'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-globe"></i></span>
+				<?php echo form_input($zip); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($zip['name']); ?>	
+			</div>		
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="<?php echo $birthday['id']; ?>"><?php echo $this->lang->line('auth_birthday'); ?></label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-calendar"></i></span>
+				<?php echo form_input($birthday); ?>
+			</div>	
+			<div class="error">
+				<?php echo form_error($birthday['name']); ?>
+			</div>		
+		</div>
+	</div>
+
+	<?php 
+	if ($captcha_registration) { ?>
+	<div class="control-group">
+		<?php
 		if ($use_recaptcha) { ?>
-	<tr>
-		<td colspan="2">
+		<div class="controls">
 			<?php echo $recaptcha_html; ?>
-		</td>
-		<td style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></td>		
-	</tr>
-	<?php } else { ?>
-	<tr>
-		<td colspan="3">
-			<p><?php echo $this->lang->line('auth_captcha_instruction'); ?>:</p>
+			<div class="error">
+				<?php echo form_error('recaptcha_response_field'); ?>
+			</div>
+		</div>
+		<?php } else {?>
+		<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>
+		<div class="controls">
 			<?php echo $captcha_html; ?>
-		</td>
-	</tr>
-	<tr>
-		<td><?php echo form_label($this->lang->line('auth_confirmation_code'), $captcha['id']); ?></td>
-		<td><?php echo form_input($captcha); ?></td>
-		<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
-	</tr>
-	<?php }
+			<div class="input-prepend captcha-field">
+				<span class="add-on"><i class="icon-qrcode"></i></span>
+				<?php echo form_input($captcha); ?>	
+			</div>
+			<div class="error">
+				<?php echo form_error($captcha['name']); ?>	
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+	<?php
 	} ?>
-</table>
-<?php echo form_submit('register', $this->lang->line('auth_register')); ?>
+
+	<div class="control-group">
+		<div class="controls">
+			<label class="checkbox">
+			<?php echo form_checkbox($agree); ?><?php echo $this->lang->line('auth_agree_terms'); ?>
+			</label>
+		</div>
+	</div>
+
+	<div class="control-group">		
+		<div class="controls login-button-box">
+			<div class="left"></div>
+			<div class="right"><button class="btn btn-success login-button" type="submit"><?php echo $this->lang->line('auth_signup'); ?></button></div>	
+			<div class="clear"></div>
+		</div>
+	</div>
+
 <?php echo form_close(); ?>
+
+	<script type="text/javascript">    
+      $(document).ready(function(){
+
+      	  $('#datepicker').datepicker({
+				autoclose: true
+		  });
+
+          $('.form-horizontal').submit(function(event) {
+              var $form = $(this);
+              var $target = $($form.attr('data-target'));
+
+              $('#signup .modal-body').html('<?php echo $this->config->item("loading_img"); ?>');
+               
+              $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                data: $form.serialize(),
+                 
+                success: function(data, status) {
+                  $('#signup .modal-body').html(data);
+                }
+              });
+               
+              event.preventDefault();
+          });
+      }); 
+      </script>

@@ -21,19 +21,50 @@
 
     <title><?php echo $title; ?></title>
 
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo $this->config->item('img_url'); ?>favicon.png">
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans=' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
 
-    <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/docs.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap-responsive.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('css_url'); ?>docs.css" rel="stylesheet">
     <?php echo $css; ?>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo $this->config->item('js_url'); ?>bootstrap.min.js"></script>
+    <script src="<?php echo $this->config->item('js_url'); ?>jqBootstrapValidation.js"></script>
     <?php echo $js; ?>
+
+    <script type="text/javascript">    
+      $(document).ready(function(){
+          $(window).scroll(function(){
+              var top = $(document).scrollTop();
+              if(top > 0)
+              {
+                $('.top-nav-area').addClass('transparent');
+              }
+              else
+              {
+                $('.top-nav-area').removeClass('transparent');
+              }
+          });
+
+          $( '#carousel' ).elastislide(); 
+
+          $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+
+          $('.modal')
+          .on('shown', function () {
+            $('body').on('wheel.modal mousewheel.modal', function () {
+              return false;
+            });
+          })
+          .on('hidden', function () {
+            $('body').off('wheel.modal mousewheel.modal');
+          });
+      }); 
+    </script>
 
   </head>
 
@@ -57,9 +88,9 @@
             <button class="btn btn-danger btn-search" type="submit"><i class="icon-search icon-white"></i></button>
           </form> 
         </div> 
-        <div class="span2">
-          <button class="btn btn-login btn-success" type="submit"><i class="icon-user icon-white"></i> Login</button>   
-          <button class="btn btn-signup btn-info" type="submit"><i class="icon-check icon-white"></i> Sign Up</button> 
+        <div class="span2">          
+          <a href="<?php echo base_url(); ?>auth/register" role="button" class="btn btn-signup btn-info" data-toggle="modal" data-target="#signup"><?php echo $this->lang->line('auth_signup'); ?></a>
+          <a href="<?php echo base_url(); ?>auth/login" role="button" class="btn btn-login btn-success" data-toggle="modal" data-target="#login"><?php echo $this->lang->line('auth_login'); ?></a>
         </div>    
       </div>
       <div class="clear"></div>
@@ -70,7 +101,7 @@
         <div class="navbar-inner">
           <a class="brand" href="#"><img class="text-logo" src="assets/img/mangorate-text.png"></a>
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Write a Review</a></li>
             <li><a href="#">Find Friends</a></li>
             <li><a href="#">Messages</a></li>
@@ -80,4 +111,42 @@
         </div>
       </div>
     </div>
-    <div class="container">
+
+    <div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
+        </div>
+      <div class="modal-body">
+        <?php echo $this->config->item('loading_img'); ?>
+      </div>
+      <div class="modal-footer">
+        By logging in you agree to Mangorate’s <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
+      </div>
+    </div>
+
+    <div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
+        </div>
+      <div class="modal-body">
+        <?php echo $this->config->item('loading_img'); ?>
+      </div>
+      <div class="modal-footer">
+        By clicking sign up, you agree to Mangorate's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
+      </div>
+    </div> 
+
+    <div id="forgot_pass" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
+        </div>
+      <div class="modal-body">
+        <?php echo $this->config->item('loading_img'); ?>
+      </div>
+      <div class="modal-footer">
+        An email with instructions for creating a new password will be sent to you.
+      </div>
+    </div> 

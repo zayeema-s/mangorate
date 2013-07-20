@@ -25,6 +25,8 @@ $config['css_url'] = $config['base_url'].'assets/css/';
 $config['js_url'] = $config['base_url'].'assets/js/';
 $config['img_url'] = $config['base_url'].'assets/img/';
 
+$config['loading_img'] = '<div class="center-align"><img src="'.$config['img_url'].'image.gif" /></div>';
+
 /*
 |--------------------------------------------------------------------------
 | Index File

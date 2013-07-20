@@ -8,13 +8,14 @@ class Welcome extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->library('tank_auth_groups','','tank_auth');
+		$this->lang->load('tank_auth');
 	}
 
 	function index()
 	{
 		$data['title'] = 'Mangorate';
 		$data['css'] = $this->tank_auth->load_css(array('elastislide.css'));
-		$data['js'] = $this->tank_auth->load_js(array('modernizr.custom.17475.js','jquery.elastislide.js'));
+		$data['js'] = $this->tank_auth->load_js(array('modernizr.custom.17475.js','jquery.elastislide.js'));		
 		$this->load->view('common/header', $data);
 		$this->load->view('welcome');
 		$this->load->view('common/footer');
