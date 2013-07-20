@@ -23,11 +23,14 @@
 
     <link rel="icon" type="image/png" href="<?php echo $this->config->item('img_url'); ?>favicon.png">
 
-    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
-    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap-responsive.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $this->config->item('css_url'); ?>font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="<?php echo $this->config->item('css_url'); ?>font-awesome-ie7.min.css">
+    <![endif]-->
     <link href="<?php echo $this->config->item('css_url'); ?>docs.css" rel="stylesheet">
     <?php echo $css; ?>
 
@@ -85,12 +88,12 @@
               <span class="add-on">Near</span>
               <input class="input-xlarge" id="prependedInput" type="text" placeholder="Dhanmondi, Dhaka">
             </div>
-            <button class="btn btn-danger btn-search" type="submit"><i class="icon-search icon-white"></i></button>
+            <button class="btn btn-search btn-inverse" type="submit"><i class="icon-search icon-light icon-large"></i></button>
           </form> 
         </div> 
         <div class="span2">          
-          <a href="<?php echo base_url(); ?>auth/register" role="button" class="btn btn-signup btn-info" data-toggle="modal" data-target="#signup"><?php echo $this->lang->line('auth_signup'); ?></a>
-          <a href="<?php echo base_url(); ?>auth/login" role="button" class="btn btn-login btn-success" data-toggle="modal" data-target="#login"><?php echo $this->lang->line('auth_login'); ?></a>
+          <a href="<?php echo base_url(); ?>auth/register" role="button" class="btn btn-signup btn-inverse" data-toggle="modal" data-target="#signup"><?php echo $this->lang->line('auth_signup'); ?></a>
+          <a href="<?php echo base_url(); ?>auth/login" role="button" class="btn btn-login btn-inverse" data-toggle="modal" data-target="#login"><?php echo $this->lang->line('auth_login'); ?></a>
         </div>    
       </div>
       <div class="clear"></div>
