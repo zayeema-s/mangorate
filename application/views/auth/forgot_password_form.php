@@ -21,10 +21,7 @@ $login = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $login['id']; ?>"><?php echo $login_label; ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-envelope"></i></span>
-				<?php echo form_input($login); ?>
-			</div>	
+			<?php echo form_input($login); ?>
 			<div class="error">
 				<?php echo form_error($login['name']); ?><?php echo isset($errors[$login['name']])?$errors[$login['name']]:''; ?>	
 			</div>	

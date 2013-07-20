@@ -75,8 +75,14 @@ $captcha = array(
 );
 ?>
 	<div class="facebook-signup-link">	
-		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>facebook.png" /></a>
-		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>twitter.png" /></a>				
+		<form class="form-horizontal">			
+		<div class="control-group">
+			<label class="control-label" for="">Facebook</label>
+			<div class="controls">
+				<a href=""><img src="<?php echo $this->config->item('img_url'); ?>facebook.png" /></a>		
+			</div>
+		</div>	
+		</form>				
 	</div>
 	<span class="or">OR</span>	
 <?php 
@@ -87,10 +93,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $username['id']; ?>"><?php echo $this->lang->line('auth_username'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-user"></i></span>
-				<?php echo form_input($username); ?>
-			</div>	
+			<?php echo form_input($username); ?>
 			<div class="error">
 				<?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?>
 			</div>		
@@ -101,10 +104,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $fname['id']; ?>"><?php echo $this->lang->line('auth_fname'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-user"></i></span>
-				<?php echo form_input($fname); ?>
-			</div>	
+			<?php echo form_input($fname); ?>
 			<div class="error">
 				<?php echo form_error($fname['name']); ?>
 			</div>		
@@ -114,10 +114,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $lname['id']; ?>"><?php echo $this->lang->line('auth_lname'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-user"></i></span>
-				<?php echo form_input($lname); ?>
-			</div>	
+			<?php echo form_input($lname); ?>
 			<div class="error">
 				<?php echo form_error($lname['name']); ?>
 			</div>		
@@ -127,10 +124,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $email['id']; ?>"><?php echo $this->lang->line('auth_email'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-envelope"></i></span>
-				<?php echo form_input($email); ?>
-			</div>	
+			<?php echo form_input($email); ?>
 			<div class="error">
 				<?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?>
 			</div>		
@@ -140,10 +134,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $password['id']; ?>"><?php echo $this->lang->line('auth_password'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-lock"></i></span>
-				<?php echo form_input($password); ?>
-			</div>	
+			<?php echo form_input($password); ?>
 			<div class="error">
 				<?php echo form_error($password['name']); ?>
 			</div>		
@@ -153,10 +144,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $zip['id']; ?>"><?php echo $this->lang->line('auth_zip'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-globe"></i></span>
-				<?php echo form_input($zip); ?>
-			</div>	
+			<?php echo form_input($zip); ?>
 			<div class="error">
 				<?php echo form_error($zip['name']); ?>	
 			</div>		
@@ -166,10 +154,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $birthday['id']; ?>"><?php echo $this->lang->line('auth_birthday'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-calendar"></i></span>
-				<?php echo form_input($birthday); ?>
-			</div>	
+			<?php echo form_input($birthday); ?>
 			<div class="error">
 				<?php echo form_error($birthday['name']); ?>
 			</div>		
@@ -191,8 +176,7 @@ $captcha = array(
 		<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>
 		<div class="controls">
 			<?php echo $captcha_html; ?>
-			<div class="input-prepend captcha-field">
-				<span class="add-on"><i class="icon-qrcode"></i></span>
+			<div class="captcha-input">
 				<?php echo form_input($captcha); ?>	
 			</div>
 			<div class="error">

@@ -34,9 +34,15 @@ $captcha = array(
 	'required' => 'required'
 );
 ?>
-	<div class="facebook-signup-link">	
-		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>facebook.png" /></a>
-		<a href=""><img src="<?php echo $this->config->item('img_url'); ?>twitter.png" /></a>				
+	<div class="facebook-signup-link">
+		<form class="form-horizontal">			
+		<div class="control-group">
+			<label class="control-label" for="">Facebook</label>
+			<div class="controls">
+				<a href=""><img src="<?php echo $this->config->item('img_url'); ?>facebook.png" /></a>		
+			</div>
+		</div>	
+		</form>			
 	</div>
 	<span class="or">OR</span>	
 <?php
@@ -46,10 +52,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $login['id']; ?>"><?php echo $login_label; ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-envelope"></i></span>
-				<?php echo form_input($login); ?>
-			</div>	
+			<?php echo form_input($login); ?>
 			<div class="error">
 				<?php echo form_error($login['name']); ?><?php echo isset($errors[$login['name']])?$errors[$login['name']]:''; ?>	
 			</div>		
@@ -59,10 +62,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $password['id']; ?>"><?php echo $this->lang->line('auth_password'); ?></label>
 		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-lock"></i></span>
-				<?php echo form_password($password); ?>
-			</div>		
+			<?php echo form_password($password); ?>	
 			<div class="error">
 				<?php echo form_error($password['name']); ?><?php echo isset($errors[$password['name']])?$errors[$password['name']]:''; ?>	
 			</div>	
@@ -83,9 +83,8 @@ $captcha = array(
 		<?php } else {?>
 		<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>
 		<div class="controls">
-			<?php echo $captcha_html; ?><br/><br/>
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-qrcode"></i></span>
+			<?php echo $captcha_html; ?>
+			<div class="captcha-input">
 				<?php echo form_input($captcha); ?>	
 			</div>
 			<div class="error">
@@ -108,7 +107,7 @@ $captcha = array(
 	<div class="control-group">		
 		<div class="controls login-button-box">
 			<div class="left"><?php echo anchor('/auth/forgot_password/', $this->lang->line('auth_forgot_password'), array('data-toggle' => 'modal', 'data-target' => '#forgot_pass', 'data-dismiss' => 'modal', 'aria-hidden' => 'true')); ?></div>
-			<div class="right"><button class="btn btn-success login-button" type="submit"><?php echo $this->lang->line('auth_let_me_in'); ?></button></div>	
+			<div class="right"><button class="btn btn-success login-button" type="submit"><?php echo $this->lang->line('auth_login'); ?></button></div>	
 			<div class="clear"></div>
 		</div>
 	</div>

@@ -123,9 +123,6 @@
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
       </div>
-      <div class="modal-footer">
-        By logging in you agree to Mangorate’s <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
-      </div>
     </div>
 
     <div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -136,9 +133,6 @@
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
       </div>
-      <div class="modal-footer">
-        By clicking sign up, you agree to Mangorate's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
-      </div>
     </div> 
 
     <div id="forgot_pass" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -148,8 +142,5 @@
         </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
-      </div>
-      <div class="modal-footer">
-        An email with instructions for creating a new password will be sent to you.
       </div>
     </div> 

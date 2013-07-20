@@ -225,7 +225,11 @@ label.checkbox {
 }
 
 .login-button-box {
-	width: 245px;
+	width: 188px;
+}
+
+.login-button-box .left {
+	padding-top: 3px;
 }
 
 .left {
@@ -249,8 +253,9 @@ label.checkbox {
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
 	text-align: center;
-	margin: 40px 72px 0px 72px;
-	padding: 20px 30px 10px 30px;
+	width: auto;
+	padding: 20px 25px 10px 25px;
+	margin: 40px 75px 0px 60px;
 }
 
 .signup-link .control-label {
@@ -261,15 +266,9 @@ label.checkbox {
 	text-align: right;
 }
 
-.facebook-signup-link {
+.facebook-signup-link img {
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
-	text-align: center;
-	margin: 0px 72px 0px 72px;
-}
-
-.facebook-signup-link img {
-	padding: 2px 0px;
 }
 
 .or {
@@ -283,6 +282,7 @@ label.checkbox {
 .modal-body {
 	max-height: 700px;
 	color: #000;
+	margin-left: 15px;
 }
 
 .modal-body label, .modal-body a {
@@ -292,6 +292,11 @@ label.checkbox {
 .modal-body input {
 	font-size: 12px;
 	padding: 3px 5px;
+	width: 177px;
+}
+
+.modal-body input[type="checkbox"] {
+	width: auto;
 }
 
 .modal-body .add-on {
@@ -320,6 +325,10 @@ label.checkbox {
 	color: red;
 	font-size: 12px;
 	margin-top: 3px;
+}
+
+.captcha-input {
+	margin-top: 13px;
 }
 
 .btn-inverse:hover,
