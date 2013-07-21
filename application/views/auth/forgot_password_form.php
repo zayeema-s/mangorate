@@ -31,7 +31,7 @@ $login = array(
 	<div class="control-group">		
 		<div class="controls login-button-box">
 			<div class="left"></div>
-			<div class="right"><button class="btn btn-success login-button" type="submit"><?php echo $this->lang->line('auth_get_new_password'); ?></button></div>	
+			<div class="right"><button class="btn btn-inverse login-button" type="submit"><?php echo $this->lang->line('auth_get_new_password'); ?></button></div>	
 			<div class="clear"></div>
 		</div>
 	</div>

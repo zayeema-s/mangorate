@@ -59,7 +59,6 @@
 }
 
 .elastislide-carousel ul li {
-	margin: 0;
 	-webkit-backface-visibility: hidden;
 }
 
@@ -67,6 +66,7 @@
 	height: 100%;
 	display: inline-block;
 	text-align: center;
+	vertical-align: top;
 }
 
 .elastislide-vertical ul li {
@@ -75,19 +75,29 @@
 
 .elastislide-carousel ul li a {
 	display: inline-block;
-	margin: 0 2px;
+}
+
+.elastislide-carousel ul li a button {
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	background: #929395;
 }
 
 .elastislide-carousel ul li a span {
 	font-size: 11px;
 	display: block;
+	width: 82px;
+	height: 30px;
+	line-height: 15px;
+	white-space: normal;
+	padding-top: 5px;
+	display:table-cell; 
+	vertical-align:middle
 }
 
 .elastislide-carousel ul li a img {
-	display: block;
-	width: 30px;
-	height: 30px;
-	padding: 8px 25px;
+	
 }
 
 /* Navigation Arrows */
@@ -108,14 +118,15 @@
 }
 
 .elastislide-horizontal nav span {
-	top: 40%;
+	top: 35%;
 	left: 0px;
 	margin-top: -11px;
+	margin-right: 2px;
 }
 
 .elastislide-vertical nav span {
 	top: 10px;
-	left: 40%;
+	left: 35%;
 	margin-left: -11px;
 	background-position: -17px 5px;
 }
