@@ -76,7 +76,7 @@
     <div class="top-nav-area navbar-fixed-top">
       <div class="container">
         <div class="span1"><img class="logo" src="<?php echo $this->config->item('img_url'); ?>mangorate-logo.png"></div>
-        <div class="span7">
+        <div class="span9">
           <form class="form-inline">
             <div class="input-prepend">
               <span class="add-on">Find</span>
@@ -87,11 +87,9 @@
               <input class="input-xlarge" id="prependedInput" type="text" placeholder="Dhanmondi, Dhaka">
             </div>
             <button class="btn btn-search btn-inverse" type="submit"><i class="icon-search icon-light icon-large"></i></button>
+            <a href="<?php echo base_url(); ?>auth/register" role="button" class="btn btn-signup btn-inverse" data-toggle="modal" data-target="#signup"><?php echo $this->lang->line('auth_signup'); ?></a>
+            <a href="<?php echo base_url(); ?>auth/login" role="button" class="btn btn-login btn-inverse" data-toggle="modal" data-target="#login"><?php echo $this->lang->line('auth_login'); ?></a>
           </form> 
-        </div> 
-        <div class="span2">          
-          <a href="<?php echo base_url(); ?>auth/register" role="button" class="btn btn-signup btn-inverse" data-toggle="modal" data-target="#signup"><?php echo $this->lang->line('auth_signup'); ?></a>
-          <a href="<?php echo base_url(); ?>auth/login" role="button" class="btn btn-login btn-inverse" data-toggle="modal" data-target="#login"><?php echo $this->lang->line('auth_login'); ?></a>
         </div>    
       </div>
       <div class="clear"></div>
@@ -116,7 +114,7 @@
     <div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
+        <h4><?php echo $this->lang->line('auth_login'); ?></h4>
         </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
@@ -126,7 +124,7 @@
     <div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
+        <h4><?php echo $this->lang->line('auth_signup'); ?></h4>
         </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
@@ -136,8 +134,8 @@
     <div id="forgot_pass" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <a href=""><img src="<?php echo $this->config->item('img_url'); ?>mangorate-text.png" /></a>
-        </div>
+        <h4><?php echo $this->lang->line('auth_forgot_password'); ?></h4>
+      </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
       </div>

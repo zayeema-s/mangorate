@@ -336,11 +336,12 @@
 			this.$wrapper = this.$carousel.parent().removeClass( 'elastislide-loading' );
 
 			// save original image sizes
-			var $img = this.$items.find( 'img:first' );
-			this.imgSize = { width : $img.outerWidth( true ), height : $img.outerHeight( true ) };
+			var $img = this.$items.find( 'span:first' );
+			var $btn = this.$items.find( 'button:first' );
+			this.imgSize = { width : $img.outerWidth( true ), height : ($img.outerHeight( true ) + $btn.outerHeight( true )) };
 
 			this._setItemsSize();
-			//this.options.orientation === 'horizontal' ? this.$el.css( 'max-height', this.imgSize.height ) : this.$el.css( 'height', this.options.minItems * this.imgSize.height );
+			this.options.orientation === 'horizontal' ? this.$el.css( 'max-height', this.imgSize.height ) : this.$el.css( 'height', this.options.minItems * this.imgSize.height );
 
 			// add the controls
 			this._addControls();
@@ -395,11 +396,11 @@
 			// width for the items (%)
 			var w = this.options.orientation === 'horizontal' ? ( Math.floor( this.$carousel.width() / this.options.minItems ) * 100 ) / this.$carousel.width() : 100;
 			
-			// this.$items.css( {
-			// 	'width' : w + '%',
-			// 	'max-width' : this.imgSize.width,
-			// 	'max-height' : this.imgSize.height
-			// } );
+			this.$items.css( {
+				'width' : w + '%',
+				'max-width' : this.imgSize.width,
+				'max-height' : this.imgSize.height
+			} );
 
 			if( this.options.orientation === 'vertical' ) {
 			
@@ -493,16 +494,16 @@
 			this.$el.off( this.transEndEventName ).off( 'swipeleft swiperight swipeup swipedown .elastislide' );
 			$window.off( '.elastislide' );
 			
-			// this.$el.css( {
-			// 	'max-height' : 'none',
-			// 	'transition' : 'none'
-			// } ).unwrap( this.$carousel ).unwrap( this.$wrapper );
+			this.$el.css( {
+				'max-height' : 'none',
+				'transition' : 'none'
+			} ).unwrap( this.$carousel ).unwrap( this.$wrapper );
 
-			// this.$items.css( {
-			// 	'width' : 'auto',
-			// 	'max-width' : 'none',
-			// 	'max-height' : 'none'
-			// } );
+			this.$items.css( {
+				'width' : 'auto',
+				'max-width' : 'none',
+				'max-height' : 'none'
+			} );
 
 			this.$navigation.remove();
 			this.$wrapper.remove();

@@ -107,7 +107,7 @@ $captcha = array(
 	<div class="control-group">		
 		<div class="controls login-button-box">
 			<div class="left"><?php echo anchor('/auth/forgot_password/', $this->lang->line('auth_forgot_password'), array('data-toggle' => 'modal', 'data-target' => '#forgot_pass', 'data-dismiss' => 'modal', 'aria-hidden' => 'true')); ?></div>
-			<div class="right"><button class="btn btn-success login-button" type="submit"><?php echo $this->lang->line('auth_login'); ?></button></div>	
+			<div class="right"><button class="btn btn-inverse login-button" type="submit"><?php echo $this->lang->line('auth_login'); ?></button></div>	
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -116,7 +116,7 @@ $captcha = array(
 		<div class="control-group">
 			<label class="control-label"><?php echo $this->lang->line('auth_dont_have_account'); ?></label>
 			<div class="controls">
-				<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', $this->lang->line('auth_register'), array('class' => 'btn btn-info', 'role' => 'button', 'data-toggle' => 'modal', 'data-target' => '#signup', 'data-dismiss' => 'modal', 'aria-hidden' => 'true')); ?>			
+				<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', $this->lang->line('auth_register'), array('class' => 'btn btn-inverse', 'role' => 'button', 'data-toggle' => 'modal', 'data-target' => '#signup', 'data-dismiss' => 'modal', 'aria-hidden' => 'true')); ?>			
 			</div>
 		</div>		
 	</div>

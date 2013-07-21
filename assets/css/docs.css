@@ -53,7 +53,7 @@ a:hover {
 .logo {
 	padding-top: 7px;
 	padding-left: 3px;
-	padding-right: 5px;
+	padding-right: 3px;
 }
 
 .top-nav-area .span1 {
@@ -62,17 +62,11 @@ a:hover {
 	width: auto;
 }
 
-.top-nav-area .span2 {
-	margin: 0px;
-	text-align: right;
-	width: auto;
-	float: right;
-}
-
-.top-nav-area .span7 {
+.top-nav-area .span9 {
 	margin: 0px;
 	height: 56px;
-	width: auto;
+	width: 973px;
+	text-align: right;
 }
 
 .top-nav-area .input-prepend {
@@ -97,10 +91,10 @@ a:hover {
 	font-size: 17px;
 }
 
-.top-nav-area .btn-login, .top-nav-area .btn-signup {
-	width: 64px;
+.top-nav-area a {
+	width: 66px;
 	text-align: center;
-	margin: 12px 3px;
+	margin: 12px 2px;
 	padding: 7px 10px;
 	font-weight: bold;
 	font-size: 16px;
@@ -184,7 +178,7 @@ a:hover {
 }
 
 .sidebar {
-	background: url("../img/knowledge_bg.png") repeat-y left top #F5F5F5 !important;
+	//background: url("../img/knowledge_bg.png") repeat-y left top #F5F5F5 !important;
 	height: 1000px;
 }
 
@@ -211,11 +205,11 @@ a:hover {
 }
 
 h1.title {
-	font-size: 21px;
+	font-size: 16px;
+	font-weight: 700;
 	line-height: 30px;
 	color: #F47A24;
 	text-shadow: 0px 1px 0px #f2f2f;
-	font-weight: normal;
 }
 
 .modal-footer {
@@ -320,10 +314,6 @@ label.checkbox {
 	margin-top: 13px;
 }
 
-.modal-header {
-	text-align: center;
-}
-
 .modal-body .error {
 	color: red;
 	font-size: 12px;
@@ -362,10 +352,6 @@ label.checkbox {
 .btn-inverse:active,
 .btn-inverse.active {
   background-color: #c67605 \9;
-}
-
-.btn-cat {
-	//height: 100px;
 }
 
 /*------------------------------------------------------------

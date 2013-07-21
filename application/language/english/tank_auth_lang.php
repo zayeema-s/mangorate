@@ -65,7 +65,7 @@ $lang['auth_delete_account'] 			= 'Delete account';
 
 $lang['auth_captcha_instruction']		= 'Enter Security Code';
 $lang['auth_dont_have_account']			= "Don't have an account yet?";
-$lang['auth_agree_terms']				= "I agree to the Terms & Policy.";
+$lang['auth_agree_terms']				= "I agree to the Terms of <a href='#'>Service</a> and <a href='#'>Privacy Policy</a>";
 
 
 /* End of file tank_auth_lang.php */
