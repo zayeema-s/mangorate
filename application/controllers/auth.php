@@ -564,7 +564,7 @@ class Auth extends CI_Controller
 		$this->load->helper('recaptcha');
 
 		// Add custom theme so we can get only image
-		$options = "<script>var RecaptchaOptions = {theme: 'white'};</script>\n";
+		$options = "<script>var RecaptchaOptions = {theme: 'red'};</script>\n";
 
 		// Get reCAPTCHA JS and non-JS HTML
 		$html = recaptcha_get_html($this->config->item('recaptcha_public_key', 'tank_auth'));

@@ -114,9 +114,9 @@ $config['captcha_fonts_path'] = 'captcha/fonts/5.ttf';
 $config['captcha_width'] = 189;
 $config['captcha_height'] = 50;
 $config['captcha_font_size'] = 14;
-$config['captcha_grid'] = TRUE;
+$config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = FALSE;
+$config['captcha_case_sensitive'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,7 +126,7 @@ $config['captcha_case_sensitive'] = FALSE;
 | You can get reCAPTCHA keys by registering at http://recaptcha.net
 |--------------------------------------------------------------------------
 */
-$config['use_recaptcha'] = FALSE;
+$config['use_recaptcha'] = TRUE;
 $config['recaptcha_public_key'] = '6LfEmswSAAAAAIk1E7ugxeAFbmNIVWNNUBWne7LE';
 $config['recaptcha_private_key'] = '6LfEmswSAAAAACQjCT6JJqVnve5_9H3hIWij8SsU';
 

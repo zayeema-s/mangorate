@@ -83,7 +83,7 @@ a:hover {
 }
 
 .top-nav-area .add-on {
-	color: #555;
+	color: #3C3C3C;
 	background: #fefefe;
 	border-right: none;
 	font-weight: bold;
@@ -114,6 +114,10 @@ a:hover {
 	font-size: 15px;
 	margin-top: 65px;
 	font-weight: 700;
+}
+
+.navbar .nav > li > a {
+	color: #3C3C3C;
 }
 
 .text-logo {
@@ -217,10 +221,6 @@ h1.title {
 	font-size: 13px;
 }
 
-label.checkbox {
-	margin-top: -8px;
-}
-
 .login-button-box {
 	width: 188px;
 }
@@ -320,6 +320,15 @@ label.checkbox {
 	margin-top: 3px;
 }
 
+label.checkbox, label.checkbox a {
+	margin-top: -8px;
+	font-size: 12px;
+}
+
+.login-button-box a {
+	font-size: 12px;
+}
+
 .captcha-input {
 	margin-top: 13px;
 }
@@ -352,6 +361,35 @@ label.checkbox {
 .btn-inverse:active,
 .btn-inverse.active {
   background-color: #c67605 \9;
+}
+
+#datepicker {
+	width: 156px;
+}
+
+.modal-body .icon-calendar {
+	color: #929395;
+}
+
+#recaptcha_image {
+	width: 178px !important;
+    height: 34px !important;
+    border-radius: 4px 4px 0px 0px;
+    border-bottom: none;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(240, 240, 240));
+}
+
+input.input-recaptcha {
+	width: 134px;
+	border-radius: 0px 0px 0px 4px;
+}
+
+.modal-body .recaptcha_refresh {
+	border-radius: 0px 0px 4px 0px;
+}
+
+.modal-body .recaptcha_input_fields {
+	margin-top: -10px;
 }
 
 /*------------------------------------------------------------

@@ -175,7 +175,7 @@ class Tank_auth
 			$hashed_password = $hasher->HashPassword($password);
 
 			$birthday = strtotime($birthday);
-			$birthday = date('Y-m-d', $birthday);
+			$birthday = date('d/m/Y', $birthday);
 
 			$data = array(
 				'username'	=> $username,

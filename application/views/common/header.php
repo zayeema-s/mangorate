@@ -35,6 +35,7 @@
     <?php echo $css; ?>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script> 
     <script src="<?php echo $this->config->item('js_url'); ?>bootstrap.min.js"></script>
     <script src="<?php echo $this->config->item('js_url'); ?>jqBootstrapValidation.js"></script>
     <?php echo $js; ?>
@@ -114,7 +115,7 @@
     <div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4><?php echo $this->lang->line('auth_login'); ?></h4>
+        &nbsp;
         </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
@@ -124,7 +125,7 @@
     <div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4><?php echo $this->lang->line('auth_signup'); ?></h4>
+        &nbsp;
         </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>
@@ -134,7 +135,7 @@
     <div id="forgot_pass" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4><?php echo $this->lang->line('auth_forgot_password'); ?></h4>
+        &nbsp;
       </div>
       <div class="modal-body">
         <?php echo $this->config->item('loading_img'); ?>

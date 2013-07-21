@@ -55,10 +55,10 @@ $birthday = array(
 	'name'	=> 'birthday',
 	'id'	=> 'birthday',
 	'value'	=> set_value('birthday'),
-	'placeholder'	=> 'Enter Birth Day',
+	'placeholder'	=> 'Enter Birthdate',
 	'required' => 'required',
 	'id' => 'datepicker',
-	'data-date-format' => 'yyyy-mm-dd'
+	'data-date-format' => 'dd/mm/yyyy'
 );
 $agree = array(
 	'name'	=> 'agree',
@@ -154,7 +154,7 @@ $captcha = array(
 	<div class="control-group">
 		<label class="control-label" for="<?php echo $birthday['id']; ?>"><?php echo $this->lang->line('auth_birthday'); ?></label>
 		<div class="controls">
-			<?php echo form_input($birthday); ?>
+			<?php echo form_input($birthday); ?> <i class="icon-calendar icon-large"></i>
 			<div class="error">
 				<?php echo form_error($birthday['name']); ?>
 			</div>		
@@ -163,28 +163,51 @@ $captcha = array(
 
 	<?php 
 	if ($captcha_registration) { ?>
-	<div class="control-group">
 		<?php
-		if ($use_recaptcha) { ?>
-		<div class="controls">
-			<?php echo $recaptcha_html; ?>
-			<div class="error">
-				<?php echo form_error('recaptcha_response_field'); ?>
-			</div>
-		</div>
+		if ($use_recaptcha) { ?>		
+			<script type="text/javascript">
+			$(document).ready(function() {
+			    Recaptcha.create("<?php echo $this->config->item('recaptcha_public_key', 'tank_auth') ?>", "recaptcha_widget", {
+			        "theme": "custom",
+			        "callback": function() { } // this doesn't get called
+			    });
+			});
+			</script>
+				<div id="recaptcha_widget" style="display: none">
+			    	<div class="control-group">
+						<div class="controls">
+							<div id="recaptcha_image" class="thumbnail"></div>
+						</div>
+					</div>
+					 
+					<div class="control-group recaptcha_input_fields">	
+						<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>					 
+						<div class="controls">
+							<div class="input-append">
+								<input type="text" id="recaptcha_response_field" class="input-recaptcha" name="recaptcha_response_field" />
+								<a class="btn recaptcha_refresh" href="javascript:Recaptcha.reload()"><i class="icon-refresh"></i></a>
+								<a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image')"><i title="Get an image CAPTCHA" class="icon-picture"></i></a>
+							</div>
+						    <div class="error">
+								<?php echo form_error('recaptcha_response_field'); ?>	
+							</div>
+						</div>
+					</div>
+				</div>
 		<?php } else {?>
-		<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>
-		<div class="controls">
-			<?php echo $captcha_html; ?>
-			<div class="captcha-input">
-				<?php echo form_input($captcha); ?>	
-			</div>
-			<div class="error">
-				<?php echo form_error($captcha['name']); ?>	
+		<div class="control-group">
+			<label class="control-label" for="<?php echo $captcha['id']; ?>"><?php echo $this->lang->line('auth_captcha_instruction'); ?></label>
+			<div class="controls">
+				<?php echo $captcha_html; ?>
+				<div class="captcha-input">
+					<?php echo form_input($captcha); ?>	
+				</div>
+				<div class="error">
+					<?php echo form_error($captcha['name']); ?>	
+				</div>
 			</div>
 		</div>
 		<?php } ?>
-	</div>
 	<?php
 	} ?>
 

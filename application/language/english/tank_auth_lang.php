@@ -48,7 +48,7 @@ $lang['auth_password_old'] 				= 'Old Password';
 $lang['auth_password_new'] 				= 'New Password';
 $lang['auth_password_new_confirm'] 		= 'Confirm New Password';
 $lang['auth_zip'] 						= 'Zip Code';
-$lang['auth_birthday'] 					= 'Birth Day';
+$lang['auth_birthday'] 					= 'Birthdate';
 
 $lang['auth_login'] 					= 'Log In';
 $lang['auth_register'] 					= 'Sign up today!';
@@ -65,7 +65,7 @@ $lang['auth_delete_account'] 			= 'Delete account';
 
 $lang['auth_captcha_instruction']		= 'Enter Security Code';
 $lang['auth_dont_have_account']			= "Don't have an account yet?";
-$lang['auth_agree_terms']				= "I agree to the Terms of <a href='#'>Service</a> and <a href='#'>Privacy Policy</a>";
+$lang['auth_agree_terms']				= "I agree to the <a href='#'>Terms of Service</a> and <a href='#'>Privacy Policy</a>";
 
 
 /* End of file tank_auth_lang.php */

@@ -75,6 +75,11 @@
 
 .elastislide-carousel ul li a {
 	display: inline-block;
+	color: #3C3C3C;
+}
+
+.elastislide-carousel ul li a:hover {
+	color: #F47A24;
 }
 
 .elastislide-carousel ul li a button {
@@ -82,6 +87,7 @@
 	height: 60px;
 	text-align: center;
 	background: #929395;
+	border: none;
 }
 
 .elastislide-carousel ul li a span {
@@ -93,7 +99,9 @@
 	white-space: normal;
 	padding-top: 5px;
 	display:table-cell; 
-	vertical-align:middle
+	vertical-align:middle;	
+	font-weight: bold;
+	letter-spacing: 0.05em;
 }
 
 .elastislide-carousel ul li a img {
