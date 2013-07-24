@@ -23,10 +23,10 @@
 
     <link rel="icon" type="image/png" href="<?php echo $this->config->item('img_url'); ?>favicon.png">
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <link href="<?php echo $this->config->item('css_url'); ?>bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('css_url'); ?>bootstrap-responsive.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo $this->config->item('css_url'); ?>font-awesome.min.css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="<?php echo $this->config->item('css_url'); ?>font-awesome-ie7.min.css">
@@ -76,9 +76,9 @@
          
     <div class="top-nav-area navbar-fixed-top">
       <div class="container">
-        <div class="span1"><img class="logo" src="<?php echo $this->config->item('img_url'); ?>mangorate-logo.png"></div>
-        <div class="span9">
+        <div class="search-bar">          
           <form class="form-inline">
+            <img class="logo" src="<?php echo $this->config->item('img_url'); ?>mangorate-logo.png">
             <div class="input-prepend">
               <span class="add-on">Find</span>
               <input class="input-xlarge" id="prependedInput" type="text" placeholder="biriyani, dinner, Coffee World">

@@ -79,7 +79,7 @@
 }
 
 .elastislide-carousel ul li a:hover {
-	color: #F47A24;
+	
 }
 
 .elastislide-carousel ul li a button {
@@ -88,6 +88,10 @@
 	text-align: center;
 	background: #929395;
 	border: none;
+}
+
+.elastislide-carousel ul li a button:hover {
+	background: #F47A24;
 }
 
 .elastislide-carousel ul li a span {
@@ -101,7 +105,6 @@
 	display:table-cell; 
 	vertical-align:middle;	
 	font-weight: bold;
-	letter-spacing: 0.05em;
 }
 
 .elastislide-carousel ul li a img {

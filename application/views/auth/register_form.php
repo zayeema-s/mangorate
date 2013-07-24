@@ -1,8 +1,4 @@
 <?php
-echo $css;
-
-echo $js;
-
 if ($use_username) {
 	$username = array(
 		'name'	=> 'username',
@@ -51,15 +47,7 @@ $zip = array(
 	'placeholder'	=> 'Enter Zip Code',
 	'required' => 'required',
 );
-$birthday = array(
-	'name'	=> 'birthday',
-	'id'	=> 'birthday',
-	'value'	=> set_value('birthday'),
-	'placeholder'	=> 'Enter Birthdate',
-	'required' => 'required',
-	'id' => 'datepicker',
-	'data-date-format' => 'dd/mm/yyyy'
-);
+
 $agree = array(
 	'name'	=> 'agree',
 	'id'	=> 'agree',
@@ -151,13 +139,61 @@ $captcha = array(
 		</div>
 	</div>
 
+	<?php
+        $bday = set_value('birthday').'';
+        if($bday == '')
+        	$bday ='01/Jan/2000';
+    ?>
+
 	<div class="control-group">
-		<label class="control-label" for="<?php echo $birthday['id']; ?>"><?php echo $this->lang->line('auth_birthday'); ?></label>
+		<label class="control-label" for="birthday"><?php echo $this->lang->line('auth_birthday'); ?></label>
 		<div class="controls">
-			<?php echo form_input($birthday); ?> <i class="icon-calendar icon-large"></i>
-			<div class="error">
-				<?php echo form_error($birthday['name']); ?>
-			</div>		
+              <div class="btn-group">
+                <button class="btn btn-bmonth" data-toggle="dropdown"><?php echo substr($bday, 3, 3);?></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-bmonth">
+                  <li><a href="#">Jan</a></li>
+                  <li><a href="#">Feb</a></li>
+                  <li><a href="#">Mar</a></li>
+                  <li><a href="#">Apr</a></li>
+                  <li><a href="#">May</a></li>
+                  <li><a href="#">Jun</a></li>
+                  <li><a href="#">Jul</a></li>
+                  <li><a href="#">Aug</a></li>
+                  <li><a href="#">Sep</a></li>
+                  <li><a href="#">Oct</a></li>
+                  <li><a href="#">Nov</a></li>
+                  <li><a href="#">Dec</a></li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-bday" data-toggle="dropdown"><?php echo substr($bday, 0, 2);?></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-bday">
+                	<?php 
+                	for ($i = 1; $i <= 31; $i++) { 
+                		if($i < 10)
+                			echo '<li><a href="#">0'.$i.'</a></li>';
+                		else
+                			echo '<li><a href="#">'.$i.'</a></li>';
+                	}
+                	?>                  
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-byear" data-toggle="dropdown"><?php echo substr($bday, 7, 4);?></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-byear">
+                  <?php 
+                    $year = date('Y');
+                	for ($i = $year; $i >= ($year-100); $i--) { 
+                		echo '<li><a href="#">'.$i.'</a></li>';
+                	}
+                	?>
+                </ul>
+              </div>           
+              
+			  <input type="hidden" name="birthday" id="birthday" value="<?php echo $bday; ?>">	
 		</div>
 	</div>
 
@@ -232,17 +268,28 @@ $captcha = array(
 	<script type="text/javascript">    
       $(document).ready(function(){
 
-      	  $('#datepicker').datepicker({
-				autoclose: true
-		  });
+      	$('.dropdown-bmonth li a').click(function(){
+      	  	$('.btn-bmonth').text($(this).text());
+      	  	$('#birthday').val($('.btn-bday').text() + '/' + $('.btn-bmonth').text() + '/' + $('.btn-byear').text());
+      	});
 
-          $('.form-horizontal').submit(function(event) {
-              var $form = $(this);
-              var $target = $($form.attr('data-target'));
+      	$('.dropdown-bday li a').click(function(){
+      	  	$('.btn-bday').text($(this).text());
+      	  	$('#birthday').val($('.btn-bday').text() + '/' + $('.btn-bmonth').text() + '/' + $('.btn-byear').text());
+      	});
 
-              $('#signup .modal-body').html('<?php echo $this->config->item("loading_img"); ?>');
+      	$('.dropdown-byear li a').click(function(){
+      	  	$('.btn-byear').text($(this).text());
+      	  	$('#birthday').val($('.btn-bday').text() + '/' + $('.btn-bmonth').text() + '/' + $('.btn-byear').text());
+      	});
+
+        $('.form-horizontal').submit(function(event) {
+            var $form = $(this);
+            var $target = $($form.attr('data-target'));
+
+            $('#signup .modal-body').html('<?php echo $this->config->item("loading_img"); ?>');
                
-              $.ajax({
+            $.ajax({
                 type: $form.attr('method'),
                 url: $form.attr('action'),
                 data: $form.serialize(),
@@ -250,9 +297,9 @@ $captcha = array(
                 success: function(data, status) {
                   $('#signup .modal-body').html(data);
                 }
-              });
+            });
                
-              event.preventDefault();
-          });
+            event.preventDefault();
+        });
       }); 
       </script>

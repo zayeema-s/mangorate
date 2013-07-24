@@ -10,10 +10,16 @@ Written By:     Sultan Mahmud
 Typography
 
 ------------------------------------------------------------*/
+
 height, body {
 	position: relative;
 	height: auto;
 	text-rendering: optimizelegibility;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border:0;
+    padding:0;
 }
 
 .clear {
@@ -29,7 +35,8 @@ body {
 	position: relative;
 }
 
-a:active, a:focus { outline: none; }
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 
 a:hover {
 	text-decoration: none;
@@ -50,53 +57,54 @@ a:hover {
 	background: url("../img/slider-arrow-bg.png") repeat scroll 0px 0px transparent;
 }
 
-.logo {
-	padding-top: 7px;
-	padding-left: 3px;
-	padding-right: 3px;
-}
-
-.top-nav-area .span1 {
-	margin-left: 0px;
-	margin-right: 0px;
-	width: auto;
-}
-
-.top-nav-area .span9 {
+.top-nav-area .search-bar {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	margin: 0px;
 	height: 56px;
-	width: 973px;
-	text-align: right;
+	width: 100%;
 }
 
 .top-nav-area .input-prepend {
-	padding: 12px 3px;
+	padding: 12px 0px;
+	margin: 0px 3px;
 }
 
 .top-nav-area .input-prepend input {
 	background: #fefefe;
 	border-left: none;
 	padding-left: 1px;
-	width: 278px;
+	width: 274px;
 	font-size: 17px;
-	padding: 7px 10px;
+	padding: 7px 10px 5px 10px;
+	border-color: #fff;
+}
+
+.top-nav-area .input-prepend input:focus, .top-nav-area .input-prepend input:active {
+	box-shadow: none;
+	border-color: #fff;
 }
 
 .top-nav-area .add-on {
 	color: #3C3C3C;
 	background: #fefefe;
 	border-right: none;
-	font-weight: bold;
-	padding: 7px 10px;
+	font-weight: 700;
+	padding: 6px 10px;
 	font-size: 17px;
+	border-color: #fff;
+}
+
+.top-nav-area .btn-search {
+	padding: 7px 14px 8px 15px;
+	margin: 12px 3px;
 }
 
 .top-nav-area a {
 	width: 66px;
 	text-align: center;
-	margin: 12px 2px;
-	padding: 7px 10px;
-	font-weight: bold;
+	margin: 12px 3px;
+	padding: 7px 10px 8px 10px;
+	font-weight: 700;
 	font-size: 16px;
 }
 
@@ -104,20 +112,20 @@ a:hover {
 	margin-right: 0px;
 }
 
-.top-nav-area .btn-search {
-	padding: 7px 14px 7px 15px;
-	margin: 12px 2px;
-}
-
 .navbar {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	margin-bottom: 5px;
 	font-size: 15px;
-	margin-top: 65px;
-	font-weight: 700;
+	margin-top: 65px;	
 }
 
 .navbar .nav > li > a {
 	color: #3C3C3C;
+}
+
+.navbar .nav > li > a:hover {
+	background: rgb(229, 229, 229);
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.125) inset;
 }
 
 .text-logo {
@@ -199,7 +207,7 @@ a:hover {
 }
 
 .links .span3 .title {
-	font-weight: bold;
+	font-weight: 700;
 	margin-bottom: 5px;
 }
 
@@ -209,7 +217,8 @@ a:hover {
 }
 
 h1.title {
-	font-size: 16px;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 18px;
 	font-weight: 700;
 	line-height: 30px;
 	color: #F47A24;
@@ -390,6 +399,43 @@ input.input-recaptcha {
 
 .modal-body .recaptcha_input_fields {
 	margin-top: -10px;
+}
+
+.btn-group + .btn-group {
+    margin-left: 0px;
+}
+
+.modal-body .btn-bmonth {
+	width: 35px;
+	padding: 3px 0px;
+	font-size: 12px;
+	color: #555555;
+	background: #fff;
+	border-color: #CCCCCC;
+}
+
+.modal-body .btn-bday {
+	width: 30px;
+	padding: 3px 0px;
+	font-size: 12px;
+	color: #555555;
+	background: #fff;
+	border-color: #CCCCCC;
+}
+
+.modal-body .btn-byear {
+	width: 41px;
+	padding: 3px 0px;
+	font-size: 12px;
+	color: #555555;
+	background: #fff;
+	border-color: #CCCCCC;
+}
+
+.dropdown-menu {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /*------------------------------------------------------------
