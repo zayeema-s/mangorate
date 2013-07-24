@@ -1,2 +1,7 @@
-MangoRate
+Mangorate
 =========
+Mangorate will be a comprehensive online city directory (including B2B) and guide that helps people find great places to eat, shop, drink, relax and play, based on the informed opinions of an active community of locals in the know. Mangorate will be the fun and easy way to find, review and talk about what's great — and not so great — in Bangladesh. People can also follow their favorite local businesses. Businesses will also be able to find other businesses. A company will be able to look for the best software company or the best caterer. They can add or claim their business on the site, respond to reviews, post offers and deals, add events, monitor activity, add pictures of the business. Every review and tip added by userswill add value to the site and we want to be the leading local search service that provides fast, free, reliable information to our users and connect buyers to sellers. Our local Service will be available on web, phone and sms and we will focus heavily on end user experience. In addition to reviews, users can use Mangorate to find events, lists and to talk with other Mangoraters, maintain a profile, add photos of businesses, check other users review activity and rating distribution, follow other users and vote reviews as helpful. Everyweek week we will publish a review of the week. We will incorporate an algorithm to filter reviews that are not useful.
+
+The lists will be user generated or editor generated ranked lists of businesses in a certain category.
+
+The community will be a section where users can have questions answered. The scope of this site is very huge. Anyone can sell our services (eg. smart listing ) to a business and earn commission upto 33% commission.
