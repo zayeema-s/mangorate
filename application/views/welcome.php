@@ -9,7 +9,7 @@
             <li><a href="#">Gulshan 1</a> <span class="divider">&middot;</span></li>
             <li><a href="#">Gulshan 2</a> <span class="divider">&middot;</span></li>
             <li><a href="#">Uttara</a> <span class="divider">&middot;</span></li>
-            <li><a href="#">More Neighborhoods &raquo;</a></li>
+            <li><a href="#">More Neighborhoods&raquo;</a></li>
           </ul>
     </div>
     <div class="content-box">
